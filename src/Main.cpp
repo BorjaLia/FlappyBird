@@ -23,7 +23,7 @@ int main() {
 	btn::Button creditsButton;
 	btn::Button exitButton;
 
-	// Créditos
+	// Credits
 	btn::Button backButton;
 	drw::TextData creditsTextData;
 
@@ -42,9 +42,12 @@ int main() {
 	obstcl::Obstacle obstacles[maxObstacles];
 	obstcl::Init(obstacles[0]);
 
-	// Pausa
+	// Pause
 	btn::Button returnButton;
 	btn::Button exitPauseButton;
+
+	//Version Overlay
+	drw::TextData versionTextData;
 
 	//drw::SpriteData fireFrame1;
 	//fireFrame1.file = "res/sprites/fire1.png";
@@ -76,29 +79,25 @@ int main() {
 	playButton.size = buttonSize;
 	playButton.useSprite = true;
 	playButton.textData.text = "Play";
-	playButton.textColor = WHITE_B;
 	btn::Init(playButton);
 
 	creditsButton.pos = { 0.5f, 0.5f };
 	creditsButton.size = buttonSize;
 	creditsButton.useSprite = true;
 	creditsButton.textData.text = "Credits";
-	creditsButton.textColor = WHITE_B;
 	btn::Init(creditsButton);
 
 	exitButton.pos = { 0.5f, 0.4f };
 	exitButton.size = buttonSize;
 	exitButton.useSprite = true;
 	exitButton.textData.text = "Exit";
-	exitButton.textColor = WHITE_B;
 	btn::Init(exitButton);
 
-	//Créditos
+	//Credits
 	backButton.pos = { 0.5f, 0.3f };
 	backButton.size = buttonSize;
 	backButton.useSprite = true;
 	backButton.textData.text = "Back";
-	backButton.textColor = WHITE_B;
 	btn::Init(backButton);
 
 	creditsTextData.fontSize = 0.05f;
@@ -109,7 +108,6 @@ int main() {
 	pauseButton.size = buttonSize;
 	pauseButton.useSprite = true;
 	pauseButton.textData.text = "Pause";
-	pauseButton.textColor = WHITE_B;
 	btn::Init(pauseButton);
 
 	scoreTextData.fontSize = 0.1f;
@@ -131,15 +129,17 @@ int main() {
 	returnButton.size = buttonSize;
 	returnButton.useSprite = true;
 	returnButton.textData.text = "Return";
-	returnButton.textColor = WHITE_B;
 	btn::Init(returnButton);
 
 	exitPauseButton.pos = { 0.5f, 0.5f };
 	exitPauseButton.size = buttonSize;
 	exitPauseButton.useSprite = true;
 	exitPauseButton.textData.text = "Exit to Menu";
-	exitPauseButton.textColor = WHITE_B;
 	btn::Init(exitPauseButton);
+
+	versionTextData.fontSize = 0.05f;
+	versionTextData.text = "v0.1";
+	versionTextData.color = SEMITRANSPARENT_B;
 
 	while (isRunning) {
 
@@ -266,6 +266,9 @@ int main() {
 			drw::Text(scoreTextData.text.c_str(), scoreTextData, { 0.5f, 0.3f }, scoreTextData.fontSize, { 0,0 }, WHITE_B);
 			break;
 		}
+
+		
+		drw::Text(versionTextData.text.c_str(), versionTextData, { 0.97f, 0.045f }, versionTextData.fontSize, { 0,0 }, WHITE_B);
 
 		drw::End();
 
